@@ -124,6 +124,15 @@ Once entering the website, the user in introduced to the navigationbar that incl
 + **.button** : Button format. (W3Schools, 2024).
 + **.button:hover** : Button hover style. (W3Schools, 2024).
 
+### [MyWork](Views/Product/MyWork.cshtml)
++ Allows employee to add products to website. (Mrzyglod, 2022).
+
+### [ViewHistory](Views/Transaction/ViewHistory.cshtml)
++ Allows a customer to view transaction history. (Mrzyglod, 2022).
+
+### [ViewOrders](Views/Transaction/ViewOrders.cshtml)
++ Allows employee to view all transactions. (Mrzyglod, 2022).
+
 ## References
 - Bootstrap. 2024. Card, 2024. [Online]. Available at: https://getbootstrap.com/docs/4.0/components/card/ [Accessed 23 May 2024].
 - Bootstrap Navbar - Tutorial on the latest Bootstrap 5. 8 April 2021. YouTube video, added by Keep coding. [Online]. Available at: https://www.youtube.com/watch?v=G3tZUO2fAEU [Accessed 22 May 2024].
