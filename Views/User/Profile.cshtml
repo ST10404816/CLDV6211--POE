@@ -1,0 +1,160 @@
+﻿@model CloudDevelopment.Models.transactionTable
+
+@{
+    ViewData["Title"] = "Profile";
+    var userID = ViewData["UserID"] as int?;
+    var userType = ViewData["UserType"] as string;
+    var transactions = ViewData["Transactions"] as List<CloudDevelopment.Models.transactionTable>;
+    var errorMessage = TempData["ErrorMessage"] as string;
+}
+﻿
+<head>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Parisienne&amp;display=swap" rel="stylesheet">
+    @*(Googlefonts, 2024).*@
+
+    <style>
+    
+        /* Google font for heading */
+        .parisienne-regular {
+            font-family: "Parisienne", cursive;
+            font-weight: 400;
+            font-style: normal;
+        }
+        /* (Googlefonts, 2024). */
+
+        /* Heading Style */
+        h2 {
+            margin: 70px 0 20px 0;
+            color: #467a79;
+            font-size: 65px;
+        }
+        /* (W3Schools, 2024). */
+
+        /* Content Style */
+        p {
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 25px;
+            margin-top: 100px;
+        }
+        /* (W3Schools, 2024). */
+
+        /* Background image */
+        .container {
+            text-align: center;
+            background-image: url('https://artistsandobjects.com/wp-content/uploads/2021/07/210707-Artists-Objects_July-21_VeerleEvens_237.jpg');
+            /*(De Clercq, 2024).*/
+            background-size: cover;
+            background-position: center;
+            padding: 30px;
+            border-radius: 15px;
+            width: 90%;
+            height: 50%;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        /* (W3Schools, 2024). */
+
+        /* Button Style */
+        .button {
+            margin: 30px 50px;
+            border-radius: 25px;
+            background-color: #72A4A2;
+            color: black;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 25px;
+            cursor: pointer;
+            transition-duration: 0.4s;
+        }
+        /* (W3Schools, 2024). */
+
+        /* Hover over button style */
+        .button:hover {
+            background-color: lightgrey;
+            color: black;
+        }
+        /* (W3Schools, 2024). */
+
+    </style>
+</head>
+
+<body>
+    @if (userType != null)
+    {
+        <p>User ID: @userType</p>
+    }
+    @if (userID != null)
+    {
+        <p>User ID: @userID</p>
+    }
+    <div>
+        @if (userType == "employee")
+        {
+            <!-- Login -->
+            <div class="container">
+                <!-- Heading -->
+                <h2 class="parisienne-regular"><b>Employee View</b></h2>
+                @if (!string.IsNullOrEmpty(errorMessage))
+                {
+                    <div class="alert alert-danger">@errorMessage</div>
+                }
+                <!-- Buttons -->
+                <form asp-controller="Transaction" asp-action="ViewOrders" method="post">
+                    <input type="hidden" name="userID" value="@userID" />
+                    <button type="submit" class="button">View Orders</button>
+                </form>
+                <!-- (Mrzyglod, 2022). -->
+
+            </div>
+            <!-- (Mrzyglod, 2022). -->
+        }
+        else if (userType == "customer")
+        {
+            <!-- Login -->
+            <div class="container">
+                <!-- Heading -->
+                <h2 class="parisienne-regular"><b>Customer View</b></h2>
+                @if (!string.IsNullOrEmpty(errorMessage))
+                {
+                    <div class="alert alert-danger">@errorMessage</div>
+                }
+                <!-- Buttons -->
+                <form asp-controller="Transaction" asp-action="ViewHistory" method="post">
+                    <input type="hidden" name="userID" value="@userID" />
+                    <button type="submit" class="button">View History</button>
+                </form>
+                <!-- (Mrzyglod, 2022). -->
+                
+            </div>
+            <!-- (Mrzyglod, 2022). -->
+        }
+        else
+        {
+            <!-- Login -->
+            <div class="container">
+                <!-- Heading -->
+                <h2 class="parisienne-regular"><b>Welcome to KhumaloCraft Emporium</b></h2>
+
+                <!-- Buttons -->
+                <div>
+                    <form asp-controller="Home" asp-action="Privacy" method="post">
+                        <button type="submit" class="button">Log In</button>
+                    </form>
+                    <form asp-controller="Home" asp-action="About" method="post">
+                        <button type="submit" class="button">Sign up</button>
+                    </form>
+                    <a href="/Views/Home/Privacy"><input type="button" value="Log in" class="button"></a>
+                    <a href="/Views/User/About"><input type="button" value="Sign up" class="button"></a>
+                </div>
+                <!-- (Mrzyglod, 2022). -->
+                <p><b>Log in to use the website or Sign up to create an account.</b></p>
+            </div>
+            <!-- (Mrzyglod, 2022). -->
+        }
+    </div>
+</body>
+@* (Mrzyglod, 2022). *@

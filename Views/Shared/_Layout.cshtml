@@ -1,0 +1,125 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Khumalo Crafts Emporium</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/CloudDevelopment.styles.css" asp-append-version="true" />
+    <style>
+        /*NavigationBar Style*/
+        .navbar-nav a {
+            font-family: Gill Sans, Gill Sans MT, Calibri, sans-serif;
+            color: dimgrey;
+            font-size: 17px;
+        }
+        /*(see Bootstrap Navbar - Tutorial on the latest Bootstrap 5, 2021).*/
+
+        /*Cursor Hover over Links*/
+        .navbar-nav a:hover {
+            transform: scale(1.1);
+            transition: transform 0.2s;
+        }
+        /*(see Bootstrap Navbar - Tutorial on the latest Bootstrap 5, 2021).*/
+
+        /*Navigation Bar Layout*/
+        .navbar-collapse {
+            justify-content: flex-end;
+        }
+        /*(see Bootstrap Navbar - Tutorial on the latest Bootstrap 5, 2021).*/
+
+        /*Vertical lines between menu items*/
+        ul {
+            list-style: none;
+        }
+        ul li {
+            display: inline-block;
+            padding: 0 7px;
+            position: relative;
+        }
+        ul li:not(:last-child)::after {
+            content: "";
+            border: 1px solid #e2e2e2;
+            border-width: 1px 1px 0 0;
+            position: absolute;
+            right: -3px;
+            top: 0;
+            height: 100%;
+        }
+        /*(Stackoverflow, 2018).*/
+
+        /*Change logo image on hover*/
+        .logo-hover-state {
+            display: none;
+        }
+
+        .site-logo:hover .logo-regular-state {
+            display: none;
+        }
+
+        .site-logo:hover .logo-hover-state {
+            display: inline-block;
+        }
+        /*(GeneratePress, 2024).*/
+
+    </style>
+</head>
+
+<body>
+    <header>
+        @*Navigation Bar*@
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm mb-3" style="background-color: white;">
+            @*(see Bootstrap Navbar - Tutorial on the latest Bootstrap 5, 2021).*@
+            <div class="container-fluid">
+                <div class="site-logo">
+                    <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">
+                        @*Logo Image*@
+                        <img id="logoImage" src="~/Images/LogoColoured.png" height="75" alt="Logo" loading="loading" class="logo-regular-state">
+                        <img src="~/Images/LogoHoverColoured.png" alt="HoverLogo" height="75" class="logo-hover-state" />
+                    </a>
+                    @*(GeneratePress, 2024)*@
+                </div>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                @*Move links to far right*@
+                <div class="navbar-collapse collapse justify-content-end">
+                    <ul class="navbar-nav flex-grow-1 justify-content-end">
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Products</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="AboutUs">About Us</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="ContactUs">Contact Us</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="User" asp-action="Profile">Profile</a>
+                        </li>
+                    </ul>
+                    @*(Mrzyglod, 2022).*@
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="border-top footer text-muted">
+        <div class="container">
+            &copy; 2024 - CloudDevelopment - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+        </div>
+    </footer>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+@*(Mrzyglod, 2022).*@
+</html>

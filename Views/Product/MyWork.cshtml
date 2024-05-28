@@ -1,0 +1,54 @@
+﻿@using Microsoft.EntityFrameworkCore.Storage
+@model CloudDevelopment.Models.productTable
+
+@{
+    ViewData["Title"] = "MyWork";
+     var products = ViewData["Products"] as List<CloudDevelopment.Models.productTable>;
+} 
+
+<h1>Products List</h1> 
+<body>
+  <form action="MyWork" method="post"> 
+   <p>Insert new products</p> 
+   <input type="text" name="Name" placeholder="Name" required> 
+   <input type="text" name="Price" placeholder="Price" required> <select name="Category" 
+   required> <option value="" disabled
+    selected>Select Category</option> 
+    <option value="Bowl">Bowl</option> 
+    <option value="Cup">Cup</option>
+     <option value="Plate">Plate</option>
+      <option value="Pot">Pot</option>
+      <option value="Other">Other</option>
+       </select> 
+   <input type="text" name="Availability" placeholder="Availability" required> <button type="submit">Submit</button> 
+  </form> 
+  <h2>All Products</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Price</th>
+            <th>Category</th>
+            <th>Availability</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var product in products)
+        {
+            <tr>
+                <td>@product.Name</td>
+                <td>@product.Price</td>
+                <td>@product.Category</td>
+                <td>@product.Availability</td>
+                <td>
+                    <form asp-controller="Transaction" asp-action="ProcessOrder" method="post">
+                    </form>
+                </td>
+            </tr>
+        }
+    </tbody>
+</<table>
+ </body>
+
+

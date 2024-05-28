@@ -1,0 +1,75 @@
+@model int
+
+@{
+    ViewData["Title"] = "HomePage";
+}
+
+ <head>
+  <meta name="viewport" content="width=device-width,initial-scale=1"> 
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"> 
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Parisienne&display=swap" rel="stylesheet">
+  
+  <style>
+        /*Google font for heading*/
+       .parisienne-regular {
+        font-family: "Parisienne", cursive;
+        font-weight: 400;
+        font-style: normal;
+        }
+        /*Body Style*/
+        body {
+            font-family: Perpetua, serif;
+            font-size: 18px;
+        }
+        /*Heading Style*/
+        h2 {
+            color: #B9A837;
+            font-size: 40px;
+        }
+        /*Content Style*/
+        p {
+          font-family: Arial, Helvetica, sans-serif;
+          font-size: 20px;
+        }
+        /*Image Size*/
+        .custom-image-size {
+            width: 100%;
+            height: 600px;
+        }
+        /*Login Button Style*/
+        .button {
+            border-radius: 12px;
+            background-color: #72A4A2;
+            color: black;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 18px;
+            margin: 4px 2px;
+            cursor: pointer;
+            transition-duration: 0.4s;
+        }
+        /*Hover over button style*/
+        .button:hover {
+            background-color: lightgrey;
+            color: black;
+        }
+  </style>
+</head>
+<body>
+  <div class="w3-cell-row">
+    <div class="w3-container w3-red w3-cell w3-cell-top" style="padding:0; margin:0; width:45%;"> 
+      <img src="~/Images/LandingPage.jpeg" alt="Lights" class="custom-image-size">
+    </div>
+    <div class="w3-container  w3-cell w3-cell-middle"> 
+      <h2 class="parisienne-regular"><b>Hand-made local dishware</b></h2> 
+      <p>Elevate your dining experience with handcrafted dishes made by local artists. At Khumalo Craft Emporium we combine dining and artistry to provide a unique experience for our customers</p> <a href="https://localhost:7277/Home/Privacy"> <input type="button" value="Login" class="button"> </a> 
+      <br>
+      <br>
+      <p style="color: #526262;">First time visiting us: <a href="https://localhost:7277/User/About">Sign Up</a></p>
+    </div> 
+   </div> 
+ </body>

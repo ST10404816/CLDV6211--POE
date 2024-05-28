@@ -1,0 +1,39 @@
+﻿@using Microsoft.EntityFrameworkCore.Storage
+@model CloudDevelopment.Models.transactionTable
+@{
+    ViewData["Title"] = "ViewHistory";
+    var transactions = ViewData["Transactions"] as List<CloudDevelopment.Models.transactionTable>;
+
+}
+<table>
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Price</th>
+            <th>Date</th>
+            <th>Status</th>
+            
+        </tr>
+    </thead>
+    <tbody>
+        @if (transactions != null)
+        {
+            foreach (var transaction in transactions)
+            {
+                <tr>
+                    <td>@transaction.ProductName</td>
+                    <td>@transaction.ProductPrice</td>
+                    <td>@transaction.TransactionDate</td>
+                    <td>@transaction.TransactionStatus</td>
+                </tr>
+            }
+        }
+        else
+        {
+            <tr>
+                <td colspan="4">No transactions found.</td>
+            </tr>
+        }
+    </tbody>
+</table>
+

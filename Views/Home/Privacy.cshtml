@@ -1,0 +1,123 @@
+﻿@model CloudDevelopment.Models.userTable
+@{
+    ViewData["Title"] = "Login";
+    var errorMessage = TempData["ErrorMessage"] as string;
+    var userType = ViewData["UserType"] as string;
+}
+
+﻿<head>
+  <meta name="viewport" content="width=device-width,initial-scale=1"> 
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    @*(W3Schools, 2024).*@
+  <link rel="preconnect" href="https://fonts.googleapis.com"> 
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
+  <link href="https://fonts.googleapis.com/css2?family=Parisienne&amp;display=swap" rel="stylesheet">
+    @*(Googlefonts, 2024).*@
+
+  <style>
+        /* Google font for heading */
+       .parisienne-regular {
+        font-family: "Parisienne", cursive;
+        font-weight: 400;
+        font-style: normal;
+        }
+        /* (Googlefonts, 2024). */
+         
+        /* Heading Style */
+        h2 {
+            color: #467a79;
+            font-size: 35px;
+            
+        }
+        /* (W3Schools, 2024). */
+
+        /* Subheading Style*/
+        h3 {
+           font-family: Bookman, URW Bookman L, serif;
+            color: black;
+            font-size: 20px;
+        }
+        /* (W3Schools, 2024). */
+
+        /* Content Style */
+        p {
+          font-family: Arial, Helvetica, sans-serif;
+          font-size: 18px;
+        }
+        /* (W3Schools, 2024). */
+
+        /*Image Size*/
+        .custom-image-size {
+            width: 100%;
+            height: 600px;
+        }
+        /* (W3Schools, 2024). */
+        
+        /* Button Style */
+        button {
+            border-radius: 12px;
+            background-color: #EDADCF;
+            color: black;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+           
+            font-size: 16px;
+           
+            cursor: pointer;
+            transition-duration: 0.4s;
+        }
+        /* (W3Schools, 2024). */
+
+        /* Hover over button style */
+        button:hover {
+            background-color: lightgrey;
+            color: black;
+        }
+        /* (W3Schools, 2024). */
+        
+        /* Input text box format*/
+        input[type="text"] {
+        width: 300px;
+        padding: 10px;
+        margin: 0px 0px;
+        box-sizing: border-box;
+        }
+        /* (W3Schools, 2024). */
+        
+  </style> 
+</head>
+
+<body>
+  <div class="w3-cell-row">
+
+        <!-- Image -->
+       <div class="w3-container w3-red w3-cell w3-cell-top" style="padding:0; margin:0; width:50%;"> 
+        <img src="~/Images/SignIn.jpg" alt="Log In" class="custom-image-size"> 
+       </div>
+        <!-- (W3Schools, 2024). -->
+
+        <!-- Content -->
+        <div class="w3-container w3-cell w3-cell-top"> 
+            <h2 class="parisienne-regular"><b>Log In</b><p><b></b></p></h2> 
+            <p>Make an account to shop at our website.</p>
+
+            <!-- Error Message -->
+            @if (!string.IsNullOrEmpty(errorMessage))
+            {
+                <div class="alert alert-danger">@errorMessage</div>
+            }
+            <!--  (David, S. 2023). -->
+
+                <form asp-controller="Login" asp-action="Privacy" method="post"> 
+                 <h3>Enter information:</h3> 
+                 <p>Email:<br> <input type="text" name="Email" placeholder="Email@gmail.com" required> </p> 
+                 <p>Password:<br> <input type="text" name="Password" placeholder="Password" required> </p> 
+                 <p></p> <button type="submit">Log in</button> 
+                </form> 
+        </div> 
+        <!-- (W3Schools, 2024). -->
+  </div>
+    <!-- (W3Schools, 2024). -->
+ </body>
+@* (Mrzyglod, 2022). *@
