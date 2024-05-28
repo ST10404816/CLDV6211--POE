@@ -1,0 +1,180 @@
+﻿@model int  // We only need to pass userID to this view
+
+@{
+    ViewData["Title"] = "Products";
+    var userID = ViewData["userID"];
+    var products = ViewData["Products"] as List<CloudDevelopment.Models.productTable>;
+    var errorMessage = TempData["ErrorMessage"] as string;
+}
+
+ <head>
+  
+  <meta name="viewport" content="width=device-width,initial-scale=1"> 
+  <link rel="preconnect" href="https://fonts.googleapis.com"> 
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
+  <link href="https://fonts.googleapis.com/css2?family=Parisienne&amp;display=swap" rel="stylesheet">
+  @*(Googlefonts, 2024).*@
+
+  <style>
+        /*Google font for heading*/
+       .parisienne-regular {
+        font-family: "Parisienne", cursive;
+        font-weight: 400;
+        font-style: normal;
+        }
+        /*(Googlefonts, 2024).*/
+
+        /*Main Heading Style*/
+        h2 {
+            color: #518987;
+            font-size: 42px;
+            text-align: center;
+        }
+        /*(W3Schools, 2024).*/
+
+        /*Sub Heading Style*/
+        h3 {
+           font-family: Bookman, URW Bookman L, serif;
+            color: #416e6c;
+            font-size: 20px;
+            text-align: center;
+        }
+        /*(W3Schools, 2024).*/
+
+        /*Content Style*/
+        p {
+          text-align: center;
+          font-family: Arial, Helvetica, sans-serif;
+          font-size: 16px;
+        }
+        /*(W3Schools, 2024).*/
+
+        /*Login Button Style*/
+        .button {
+            border-radius: 12px;
+            background-color: #72A4A2;
+            color: black;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 18px;
+            margin: 4px 2px;
+            cursor: pointer;
+            transition-duration: 0.4s;
+        }
+            /*(W3Schools, 2024).*/
+
+            /*Hover over button style*/
+            .button:hover {
+                background-color: lightgrey;
+                color: black;
+            }
+        /*(W3Schools, 2024).*/
+
+    </style>
+    </head>
+
+    <h2 class="parisienne-regular">Products</h2>
+
+    @if (userID != null)
+    {
+    <p>User ID: @userID</p>
+    @*Product Card*@
+    <div class="container">
+        <div class="row">
+            @foreach (var product in products)
+            {
+                <div class="col-md-3">
+                    <div class="card mb-4 shadow-sm">
+                        <img id="productImage-@product.ProductID" class="card-img-top" src="" alt="Product Image">
+                        <div class="card-body">
+                            <h3 class="card-title">@product.Name</h3>
+                            <p class="card-text">Price: R@product.Price</p>
+                            <p class="card-text">Category: @product.Category</p>
+                            <p class="card-text">Availability: @product.Availability</p>
+                            <form asp-controller="Transaction" asp-action="PlaceOrder" method="post">
+                                <input type="hidden" name="userID" value="@userID" />
+                                <input type="hidden" name="productID" value="@product.ProductID" />
+                                <button type="submit" class="button">Place Order</button>
+                            </form>
+                            <!-- Error Message -->
+                            @if (!string.IsNullOrEmpty(errorMessage))
+                            {
+                                <div class="alert alert-danger">@errorMessage</div>
+                            }
+                            <!--  (David, S. 2023). -->
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+    @*(Bootsrap, 2024).*@
+}
+else
+{
+    
+    @*Product Card*@
+    <div class="container">
+        <div class="row">
+            @foreach (var product in products)
+            {
+                <div class="col-md-3">
+                    <div class="card mb-4 shadow-sm">
+                        <img id="productImage-@product.ProductID" class="card-img-top" src="" alt="Product Image">
+                        <div class="card-body">
+                            <h3 class="card-title">@product.Name</h3>
+                            <p class="card-text">Price: @product.Price</p>
+                            <p class="card-text">Category: @product.Category</p>
+                            <p class="card-text">Availability: @product.Availability</p>
+                            <p class="card-text"><b>Please log in to purchase.</b></p>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+    @*(Bootsrap, 2024).*@
+    }
+
+    @*Display Image based on Category*@
+    @section Scripts {
+        <script>
+            function displayImage(category, imgElementId) {
+                const imgElement = document.getElementById(imgElementId);
+                let imgSrc = '';
+
+                switch (category) {
+                    case 'Bowl':
+                        imgSrc = '@Url.Content("~/Images/Bowl.png")';
+                        break;
+                    case 'Cup':
+                        imgSrc = '@Url.Content("~/Images/Cup.png")';
+                        break;
+                    case 'Plate':
+                        imgSrc = '@Url.Content("~/Images/Plate.png")';
+                        break;
+                    case 'Pot':
+                        imgSrc = '@Url.Content("~/Images/Pot.png")';
+                        break;
+                    default:
+                        imgSrc = '@Url.Content("~/Images/Other.png")';
+                }
+
+                imgElement.src = imgSrc;
+            }
+
+            document.addEventListener('DOMContentLoaded', (event) => {
+            @foreach (var product in products)
+            {
+                <text>
+                        displayImage('@product.Category', 'productImage-@product.ProductID');
+                </text>
+            }
+                    });
+        </script>
+    }
+    @*(Bootsrap, 2024).*@
+
+
