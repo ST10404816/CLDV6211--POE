@@ -57,7 +57,7 @@ namespace CloudDevelopment.Controllers
 
         public IActionResult About()
         {
-            return View("/Views/User/About.cshtml");
+            return View();
         }
 
         public IActionResult MyWork()

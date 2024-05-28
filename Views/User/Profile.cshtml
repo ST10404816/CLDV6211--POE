@@ -83,14 +83,7 @@
 </head>
 
 <body>
-    @if (userType != null)
-    {
-        <p>User ID: @userType</p>
-    }
-    @if (userID != null)
-    {
-        <p>User ID: @userID</p>
-    }
+   
     <div>
         @if (userType == "employee")
         {
@@ -103,11 +96,13 @@
                     <div class="alert alert-danger">@errorMessage</div>
                 }
                 <!-- Buttons -->
-                <form asp-controller="Transaction" asp-action="ViewOrders" method="post">
-                    <input type="hidden" name="userID" value="@userID" />
-                    <button type="submit" class="button">View Orders</button>
-                </form>
-                <!-- (Mrzyglod, 2022). -->
+                <div>
+                    <a href="https://st10404816.azurewebsites.net/Transaction/ViewOrders"><input type="button" value="View Orders" class="button">
+                    <input type="hidden" name="userType" value="@userType" />
+                    <a href="https://st10404816.azurewebsites.net/User/About"><input type="button" value="Add Products" class="button"></a>
+                    <a href="https://st10404816.azurewebsites.net/Product/MyWork"><input type="button" value="Add Products" class="button"></a>
+               </div>
+               <!-- (Mrzyglod, 2022). -->
 
             </div>
             <!-- (Mrzyglod, 2022). -->
@@ -141,14 +136,8 @@
 
                 <!-- Buttons -->
                 <div>
-                    <form asp-controller="Home" asp-action="Privacy" method="post">
-                        <button type="submit" class="button">Log In</button>
-                    </form>
-                    <form asp-controller="Home" asp-action="About" method="post">
-                        <button type="submit" class="button">Sign up</button>
-                    </form>
-                    <a href="/Views/Home/Privacy"><input type="button" value="Log in" class="button"></a>
-                    <a href="/Views/User/About"><input type="button" value="Sign up" class="button"></a>
+                    <a href="https://st10404816.azurewebsites.net/Home/Privacy"><input type="button" value="Log in" class="button"></a>
+                    <a href="https://st10404816.azurewebsites.net/User/About"><input type="button" value="Sign up" class="button"></a>
                 </div>
                 <!-- (Mrzyglod, 2022). -->
                 <p><b>Log in to use the website or Sign up to create an account.</b></p>

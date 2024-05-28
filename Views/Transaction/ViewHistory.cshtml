@@ -5,35 +5,49 @@
     var transactions = ViewData["Transactions"] as List<CloudDevelopment.Models.transactionTable>;
 
 }
+
+<h1>Customer Transaction History</h1>
+
 <table>
+    <!-- Table header -->
     <thead>
         <tr>
             <th>Name</th>
             <th>Price</th>
             <th>Date</th>
             <th>Status</th>
-            
         </tr>
     </thead>
+    <!-- (Github, 2024). -->
+
+    <!-- Table body -->
     <tbody>
-        @if (transactions != null)
+        <!-- Check if the model is not null and contains any elements -->
+        @if (transactions != null && transactions.Any())
         {
+            <!-- Loop through each transaction in the model -->
             foreach (var transaction in transactions)
             {
                 <tr>
-                    <td>@transaction.ProductName</td>
+                    <!-- Display transactions -->
+                    <td>@transaction.ProductName</td>  
                     <td>@transaction.ProductPrice</td>
                     <td>@transaction.TransactionDate</td>
                     <td>@transaction.TransactionStatus</td>
                 </tr>
             }
+            <!-- (Github, 2024). -->
         }
         else
         {
+            <!-- If the model is null or empty -->
             <tr>
                 <td colspan="4">No transactions found.</td>
             </tr>
+            <!-- (Github, 2024). -->
         }
     </tbody>
+    <!-- (Github, 2024). -->
 </table>
+
 

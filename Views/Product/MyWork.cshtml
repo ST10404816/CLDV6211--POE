@@ -3,52 +3,71 @@
 
 @{
     ViewData["Title"] = "MyWork";
-     var products = ViewData["Products"] as List<CloudDevelopment.Models.productTable>;
-} 
 
-<h1>Products List</h1> 
+    // Retrieve the products list from ViewData
+    var products = ViewData["Products"] as List<CloudDevelopment.Models.productTable>;
+}
+
+<!-- Header -->
+<h1>Add a new product</h1>
+<!-- (Mrzyglod, 2022). -->
+
 <body>
-  <form action="MyWork" method="post"> 
-   <p>Insert new products</p> 
-   <input type="text" name="Name" placeholder="Name" required> 
-   <input type="text" name="Price" placeholder="Price" required> <select name="Category" 
-   required> <option value="" disabled
-    selected>Select Category</option> 
-    <option value="Bowl">Bowl</option> 
-    <option value="Cup">Cup</option>
-     <option value="Plate">Plate</option>
-      <option value="Pot">Pot</option>
-      <option value="Other">Other</option>
-       </select> 
-   <input type="text" name="Availability" placeholder="Availability" required> <button type="submit">Submit</button> 
-  </form> 
-  <h2>All Products</h2>
+    <!-- Form for inserting new products -->
+    <form action="MyWork" method="post">
+    <!-- (Mrzyglod, 2022). -->
 
-<table class="table">
-    <thead>
-        <tr>
-            <th>Name</th>
-            <th>Price</th>
-            <th>Category</th>
-            <th>Availability</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var product in products)
-        {
+        <input type="text" name="Name" placeholder="Name" required>
+        <input type="text" name="Price" placeholder="Price" required>
+        <select name="Category" required>
+            <option value="" disabled selected>Select Category</option>
+            <option value="Bowl">Bowl</option>
+            <option value="Cup">Cup</option>
+            <option value="Plate">Plate</option>
+            <option value="Pot">Pot</option>
+            <option value="Other">Other</option>
+        </select>
+        <!-- (Bootstrap, 2024). -->
+        <input type="text" name="Availability" placeholder="Availability" required>
+        <input type="text" name="Quantity" placeholder="Quantity" required>
+
+        <!-- Submit button for the form -->
+        <button type="submit">Submit</button>
+    </form>
+
+    <!-- Header for the list of all products -->
+    <h2>All Products</h2>
+
+    <!-- Table to display the list of all products -->
+    <table class="table">
+        <thead>
             <tr>
-                <td>@product.Name</td>
-                <td>@product.Price</td>
-                <td>@product.Category</td>
-                <td>@product.Availability</td>
-                <td>
-                    <form asp-controller="Transaction" asp-action="ProcessOrder" method="post">
-                    </form>
-                </td>
+                <th>Name</th>
+                <th>Price</th>
+                <th>Category</th>
+                <th>Availability</th>
+                <th>Quantity</th>
             </tr>
-        }
-    </tbody>
-</<table>
- </body>
-
-
+        </thead>
+        <!-- (Bootstrap, 2024). -->
+        <tbody>
+            <!-- Loop through each product in the products list and display its details -->
+            @foreach (var product in products)
+            {
+                <tr>
+                    <td>@product.Name</td>
+                    <td>@product.Price</td>
+                    <td>@product.Category</td>
+                    <td>@product.Availability</td>
+                    <td>@product.Quantity</td>
+                    <td>
+                        <!-- processing an order -->
+                        <form asp-controller="Transaction" asp-action="ProcessOrder" method="post">
+                        </form>
+                    </td>
+                </tr>
+                <!-- (Bootstrap, 2024). -->
+            }
+        </tbody>
+    </table>
+</body>
