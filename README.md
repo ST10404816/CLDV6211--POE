@@ -136,6 +136,7 @@ Once entering the website, the user in introduced to the navigationbar that incl
 ## References
 - Bootstrap. 2024. Card, 2024. [Online]. Available at: https://getbootstrap.com/docs/4.0/components/card/ [Accessed 23 May 2024].
 - Bootstrap Navbar - Tutorial on the latest Bootstrap 5. 8 April 2021. YouTube video, added by Keep coding. [Online]. Available at: https://www.youtube.com/watch?v=G3tZUO2fAEU [Accessed 22 May 2024].
+- Ceramics, K. 2024. Handmade ceramic plates | Kari Ceramics. [Online]. Available at: https://za.pinterest.com/pin/889742470118421085/ [Accessed 23 May 2024].
 - David, S. 2023. Gamesino Technical Manual Final 4th Year Project, 17 April 2023. [Online]. Available at: https://showcase.itcarlow.ie/C00250105/TechinalManual.pdf [Accessed 22 May 2024].
 - De Clercq, E. 2024. Espresso Cups, Artists and Objects, 2024. [Online]. Available at: https://artistsandobjects.com/product/espresso-cups/ [Accessed 25 May 2024].
 - Drupal. 2024. README.md template, 13 March 2024. [Online]. Available at: https://www.drupal.org/docs/develop/managing-a-drupalorg-theme-module-or-distribution-project/documenting-your-project/readmemd-template [Accessed 22 May 2024].
@@ -164,6 +165,5 @@ Once entering the website, the user in introduced to the navigationbar that incl
 - [Pot](wwwroot/Images/Pot.png)(Flaticon.com, 2024).
 - [Other](wwwroot/Images/Other.png)(Flaticon.com, 2024).
 
-Ceramics, K. 2024. Handmade ceramic plates | Kari Ceramics. [Online]. Available at: https://za.pinterest.com/pin/889742470118421085/ [Accessed 23 May 2024].
 
 
