@@ -34,40 +34,6 @@
         <!-- Submit button for the form -->
         <button type="submit">Submit</button>
     </form>
-
-    <!-- Header for the list of all products -->
-    <h2>All Products</h2>
-
-    <!-- Table to display the list of all products -->
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Name</th>
-                <th>Price</th>
-                <th>Category</th>
-                <th>Availability</th>
-                <th>Quantity</th>
-            </tr>
-        </thead>
-        <!-- (Bootstrap, 2024). -->
-        <tbody>
-            <!-- Loop through each product in the products list and display its details -->
-            @foreach (var product in products)
-            {
-                <tr>
-                    <td>@product.Name</td>
-                    <td>@product.Price</td>
-                    <td>@product.Category</td>
-                    <td>@product.Availability</td>
-                    <td>@product.Quantity</td>
-                    <td>
-                        <!-- processing an order -->
-                        <form asp-controller="Transaction" asp-action="ProcessOrder" method="post">
-                        </form>
-                    </td>
-                </tr>
-                <!-- (Bootstrap, 2024). -->
-            }
-        </tbody>
-    </table>
 </body>
+
+

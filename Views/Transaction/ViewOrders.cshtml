@@ -5,42 +5,55 @@
     var transactions = ViewData["Transactions"] as List<CloudDevelopment.Models.transactionTable>;
 }
 
+<!-- heading -->
 <h1>You are now viewing all user orders</h1>
 
+<!-- Table -->
 <table>
-  <thead>
-                <tr>
-                    <th>ProductID</th>
-                    <th>UserID</th>
-                    <th>TransactionID</th>
-                    <th>Date</th>
-                    <th>Status</th>
-                </tr>
+    <!-- Table header -->
+   <thead>
+       <tr>
+           <th>ProductID</th>
+           <th>UserID</th>
+           <th>TransactionID</th>
+           <th>Date</th>
+           <th>Status</th>
+       </tr>
+       <!-- (Github, 2024). -->
     </thead>
+    <!-- Table body -->
     <tbody>
-                @if (transactions != null)
-                {
-                    foreach (var transaction in transactions)
-                    {
-                        <tr>
-                            <td>@transaction.ProductID</td>
-                            <td>@transaction.UserID</td>
-                            <td>@transaction.TransactionID</td>
-                            <td>@transaction.TransactionDate</td>
-                            <td>@transaction.TransactionStatus</td>
-                    <form asp-controller="Transaction" asp-action="ProcessOrder" method="post">
-                        <input type="hidden" name="transactionID" value="@transaction.TransactionID" />
-                        <button type="submit" class="button">Process Orders</button>
-                    </form>
-                        </tr>
-                    }
-                }
-                else
-                {
-                    <tr>
-                        <td colspan="4">No transactions found.</td>
-                    </tr>
-                }
+        @if (transactions != null)
+        {
+            foreach (var transaction in transactions)
+            {
+              <tr>
+                  <!-- Table values -->
+                  <td>@transaction.ProductID</td>
+                  <td>@transaction.UserID</td>
+                  <td>@transaction.TransactionID</td>
+                  <td>@transaction.TransactionDate</td>
+                  <td>@transaction.TransactionStatus</td>
+                  <!-- (Github, 2024). -->
+
+                  <!-- Process order -->
+                  <form asp-controller="Transaction" asp-action="ProcessOrder" method="post">
+                      <input type="hidden" name="transactionID" value="@transaction.TransactionID" />
+                      <button type="submit" class="button">Process Orders</button>
+                  </form>
+                  <!-- (Github, 2024). -->
+              </tr>
+            }
+         }
+         else
+         {
+            <!-- No transactions -->
+            <tr>
+                <td colspan="4">No transactions found.</td>
+            </tr>
+         }
+        <!-- (Github, 2024). -->
+
     </tbody>
 </table>
 
