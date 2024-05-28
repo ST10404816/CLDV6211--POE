@@ -10,7 +10,7 @@
 - List of Figures
 
 ## Description
-This is an e-commerce website to act as an online store for KhumaloCraft Emporium started by James Khumalo. This will help him meet market demands, reach users around the world, and provide a seamless user experience. Through this website cloud computing is utilized to offer scalability, accessibility, and resources to meet KhumaloCraft Emporium’s digital needs (Kingsnorth, 2019).  
+This is an e-commerce website to act as an online store for KhumaloCraft Emporium started by James Khumalo. This will help him meet market demands, reach users around the world, and provide a seamless user experience. Through this website cloud computing is utilized to offer scalability, accessibility, and resources to meet KhumaloCraft Emporiumâ€™s digital needs (Kingsnorth, 2019).  
 ### Product
 KhumaloCraft Emporium sells different types of handcrafted dishes. The categories include bowls, plates, cups and pots.
 
@@ -28,6 +28,18 @@ Once entering the website, the user in introduced to the navigationbar that incl
 ### [LoginController](Controllers/LoginController.cs)
 + **ActionResult Privacy(string email, string password)** : Function to log user in. (Mrzyglod, 2022).
 + **Error Message** : Displays error message. (David, S. 2023).
+
+### [TransacionController](Controllers/TransactionController.cs)
++ **ActionResult PlaceOrder(int userID, int productID)** : Places order on a product. (Mrzyglod, 2022).
++ **ActionResult ProcessOrder(int tID)** : Allows the employee to process an order. (Mrzyglod, 2022).
++ **ActionResult ViewHistory(int uID)**: User can view their product history. (Github, 2024).  
++ **Error Message** : Displays error message. (David, S. 2023).
+
+### [UserController](Controllers/UserControler.cs)
++ Methods to access userTable model and user views. (Mrzyglod, 2022).
+
+### [ProductController](Controllers/ProductController.cs)
++ Methods to access productTable model and product views. (Mrzyglod, 2022).
 
 ## Models
 ### [userTable](Models/userTable.cs)
