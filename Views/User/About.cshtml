@@ -116,11 +116,11 @@
              <p>Password:<br> <input type="text" name="Password" placeholder="Password" required> </p>
              @if(userType == "employee")
                 {
-                    <input type="hidden" name="userType" value="@userType" />
+                    <input type="hidden" name="Type" value="@userType" />
                 }
                 else
                 {
-                    <input type="hidden" name="userType" value="customer" />
+                    <input type="hidden" name="Type" value="customer" />
                 }
                 <p></p> <button type="submit">Submit</button> 
         </form>
